@@ -7,7 +7,7 @@
 
 :root {
   --color-primary: #191d2b;
-  --color-primary2: #7684b6;
+  --color-primary2: #ffffff;
   --color-secondary: #27ae60;
   --color-white: #ffffff;
   --color-black: #000;
@@ -61,25 +61,42 @@ section {
 .sec1 {
   display: none;
   transform: translateY(0) scale(1);
+  background-color: rgb(232, 225, 116);
 }
 .sec2 {
   display: none;
   transform: translateY(0) scale(1);
+  background-color: rgb(90, 205, 157);
 }
 .sec3 {
   display: none;
   transform: translateY(0) scale(1);
+  background-color: rgb(90, 117, 205);
 }
 .sec4 {
   display: none;
   transform: translateY(0) scale(1);
+  background-color: rgb(205, 90, 184);
 }
 .sec5 {
   display: none;
   transform: translateY(0) scale(1);
+  background-color: rgb(208, 193, 205);
 }
 
-//Controlls
+.active {
+  display: block;
+  animation: scaleAnim 1s ease-in-out;
+  @keyframes scaleAnim {
+    0% {
+      transform: translateY(-100%) scaleY(0);
+    }
+    100% {
+      transform: translateY(0) scaleY(1);
+    }
+  }
+}
+
 .controlls {
   position: fixed;
   z-index: 10;
