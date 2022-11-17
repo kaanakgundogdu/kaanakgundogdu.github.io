@@ -1,77 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="main-content">
-    <header class="section sec1 home active" id="home">
-      <div class="header-content">
-        <div class="left-header">
-          <div class="h-shape"></div>
-          <div class="image">
-            <img src="img/test.jpg" alt="" />
-          </div>
-        </div>
-        <div class="right-header">
-          <h1 class="name">
-            Hi, I'm <span>Kaan Akgundogdu</span> a software developer from
-            Turkey.
-          </h1>
-          <p>
-            I'm trying to learn every popular programing languages. I was work
-            in mobile game indistury for one and a half year. Interested in
-            javascript, go, rust and python.In my free time, i play video games
-            and read manga.
-          </p>
-          <div class="btn-con">
-            <a href="" class="main-btn">
-              <span class="btn-text">Download CV</span>
-              <span class="btn-icon"><i class="fas fa-download"></i></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <section class="section sec2 about" id="about"></section>
-      <section class="section sec3 portfolio" id="portfolio"></section>
-      <section class="section sec4 blogs" id="blogs"></section>
-      <section class="section sec5 cantact" id="contact"></section>
-    </main>
-    <div class="controlls">
-      <div class="control control-1 active-btn" data-id="home">
-        <i class="fas fa-home"></i>
-      </div>
-      <div class="control control-2" data-id="about">
-        <i class="fas fa-user"></i>
-      </div>
-      <div class="control control-3" data-id="portfolio">
-        <i class="fas fa-briefcase"></i>
-      </div>
-      <div class="control control-4" data-id="blogs">
-        <i class="fas fa-newspaper"></i>
-      </div>
-      <div class="control control-5" data-id="contact">
-        <i class="fas fa-address-book"></i>
-      </div>
-    </div>
-    <script src="app.js"></script>
-  </body>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIXICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>Responsive portfolio website Chris - Bedimcode</title>
+    </head>
+    <body>
+        <!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Kaan
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list grid">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link">
+                                <i class="ri-home-5-line"></i> Home
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">
+                                <i class="ri-trophy-line"></i> Skills
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#qualification" class="nav__link">
+                                <i class="ri-book-open-line"></i> Qualification
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#services" class="nav__link">
+                                <i class="ri-briefcase-line"></i> Services
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#projects" class="nav__link">
+                                <i class="ri-image-line"></i> Projects
+                            </a>
+                        </li>
+
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">
+                                <i class="ri-chat-3-line"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Close button -->
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+                <div class="nav__buttons">
+                    <!-- theme change button -->
+                    <!-- <i class="ri-moon-line  change-theme" id="theme-button"></i> -->
+
+                    <!-- toggle button -->
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-4-line"></i>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <!--==================== MAIN ====================-->
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home section" id="home">
+                <div class="home__container container grid section__border">
+                    <div class="home__data grid">
+                        <h1 class="home__title">
+                            Hi, I’m Kaan <br>
+                            Software Developer <br>
+                            Based In Turkey <br>
+                        </h1>
+                        <div class="home__blob grid">
+                            <div class="home__perfil">
+                                <img src="assets/img/goku.png" alt="home profil">
+                            </div>
+                            <!-- <img src="assets/img/shape-wawes.svg" alt="" class="home__shape-wawes"> -->
+                            <!-- <img src="assets/img/shape-circle.svg" alt="" class="home__shape-circle"> -->
+                        </div>
+                        <ul class="home__social">
+                            <a href="https://www.linkedin.com/in/kaanakgundogdu/" target="_blank" class="home__social-link">
+                                <i class="ri-linkedin-box-line"></i>
+                            </a>
+
+                            <a href="https://github.com/kaanakgundogdu" target="_blank" class="home__social-link">
+                                <i class="ri-github-line"></i>
+                            </a>
+
+                            <a href="https://kaanakgundogdu.deno.dev/" target="_blank" class="home__social-link">
+                                <i class="ri-links-line"></i>
+                            </a>
+                        </ul>
+                    </div>
+                    <!--==================== HOME INFO 1 ====================-->
+                    <div class="home__info">
+                        <div>
+                            <h3 class="home__info-title">
+                                BIOGRAPHY
+                            </h3>
+                            <p class="home__info-description">
+                                I am a Software developer from Turkey.
+                                I'm trying to learn every popular programing languages.
+                                I worked in mobile game industury for one and a half year. 
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="home__info-title">
+                                CONTACT
+                            </h3>
+                            <p class="home__info-description">
+                                Istanbul, Turkey <br>
+                                kaanakgundogdu@gmail.com <br>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="home__info-title">
+                                LANGUAGES AND TOOLS
+                            </h3>
+                            <p class="home__info-description">
+                                C++ <br>
+                                Python <br>
+                                QT <br>
+                            </p>
+                        </div>
+                    </div>
+                    <!--==================== HOME INFO 2 ====================-->
+                    <div class="home__info">
+                        <div>
+                            <h3 class="home__info-title">
+                                YEARS OF EXPERIENCE
+                            </h3>
+                            <p class="home__info-number">
+                                02+
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="home__info-title">
+                                COMPLETED PROJECTS
+                            </h3>
+                            <p class="home__info-number">
+                                50+
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="home__info-title">
+                                COMPANIES WORKED
+                            </h3>
+                            <p class="home__info-number">
+                                01
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--==================== SKILLS ====================-->
+            <section class="skills section" id="skills">
+                
+            </section>
+
+            <!--==================== QUALIFICATION ====================-->
+            <section class="qualification section" id="qualification">
+                
+            </section>
+
+            <!--==================== SERVICES ====================-->
+            <section class="services section" id="services">
+                
+            </section>
+
+            <!--==================== PROJECTS ====================-->
+            <section class="projects section" id="projects">
+                
+            </section>
+
+            <!--==================== TESTIMONIAL ====================-->
+            <section class="testimonial section">
+                
+            </section>
+
+            <!--==================== CONTACT ====================-->
+            <section class="contact section" id="contact">
+                
+            </section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer">
+            
+        </footer>
+
+
+        <!--========== SCROLL UP ==========-->
+        
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src=""></script>
+
+        <!--=============== SWIPER JS ===============-->
+        <script src=""></script>
+        
+        <!--=============== EMAIL JS ===============-->
+        
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
