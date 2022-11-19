@@ -722,6 +722,15 @@ body.dark-theme {
   margin-bottom: 1.5rem;
 }
 
+.certifications__link{
+  color: var(--text-color-light);
+}
+
+.certifications__link:hover{
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
 .certifications__name {
   font-family: var(--body-font);
   font-size: var(--small-font-size);
