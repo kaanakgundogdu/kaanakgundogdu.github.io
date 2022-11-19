@@ -40,27 +40,27 @@ let swiperProjects = new Swiper(".projects__container", {
     },
     pagination: {
         el: ".swiper-pagination",
-    }/*,
+    },
     // mousewheel: true,
     // keyboard: true,
     breakpoints: {
-        "@0.00": {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        "@0.75": {
-            slidesPerView: 1,
-            spaceBetween: 150,
-        },
-        "@1.00": {
+        1200: {
             slidesPerView: 2,
-            spaceBetween: 150,
+            spaceBetween: -56,
         },
-        "@1.50": {
-            slidesPerView: 2,
-            spaceBetween: 200,
-        },
-    }*/
+        // "@0.75": {
+        //     slidesPerView: 1,
+        //     spaceBetween: 150,
+        // },
+        // "@1.00": {
+        //     slidesPerView: 2,
+        //     spaceBetween: 150,
+        // },
+        // "@1.50": {
+        //     slidesPerView: 2,
+        //     spaceBetween: 200,
+        // },
+    }
 });
 
 /*=============== SWIPER Certification ===============*/
