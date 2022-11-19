@@ -73,7 +73,40 @@ let swiperCertification = new Swiper(".certifications__container", {
   });
 
 /*=============== EMAIL JS ===============*/
+const contactForm=document.getElementById('contact-form'),
+      contactName=document.getElementById('contact-name'),
+      contactEmail=document.getElementById('contact-email'),
+      contactProject=document.getElementById('contact-project'),
+      contactMessage=document.getElementById('contact-message');
 
+const sendEmail=(e)=>{
+    e.preventDefault()
+
+    if (contactName.value==='' || contactEmail.value==='' || contactProject.value ==='') {
+        contactMessage.classList.remove('color-blue')
+        contactMessage.classList.add('color-red')
+
+        contactMessage.textContent = 'Write all the input fields.'
+    }else{
+        emailjs.sendForm('serviceID', 'publicApiKey', '#contact-form', '9mDeB9UhRTMZKe_88')
+        .then(()=> {
+            contactMessage.classList.add('color-blue')
+            contactMessage.textContent = 'Message Sent'
+            setTimeout(() => {
+                contactMessage.textContent=''
+            }, 5000)
+        }, (error)=>{
+            //alert('SOMETHING WENT WRONG...',error)
+        })
+
+        contactName.value='';
+        contactEmail.value='';
+        contactProject.value='';
+    }
+
+}
+
+contactForm.addEventListener('submit',sendEmail)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
