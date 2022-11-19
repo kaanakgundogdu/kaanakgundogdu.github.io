@@ -17,8 +17,8 @@
   /* Change the first number */
   /* Blue: 207 - Purple: 250 - Pink: 356 - Teal: 174 */
   --gradient-color: linear-gradient(180deg,
-      hsla(207, 48%, 72%, 0),
-      hsla(207, 65%, 65%, 1));
+      hsla(356, 48%, 72%, 0),
+      hsla(356, 65%, 65%, 1));
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -138,6 +138,9 @@ body.dark-theme {
 .dark-theme .qualification__img,
 .dark-theme .certifications__img {
   filter: invert(1);
+}
+.dark-theme .unity{
+  background-color:white;
 }
 
 .dark-theme .home__social-link {
@@ -321,20 +324,20 @@ body.dark-theme {
 
 .home__blob {
   position: relative;
-  width: 200px;
-  height: 290px;
+  width: 230px;
+  height: 230px;
   background-color: var(--body-color);
   border: 2px solid var(--text-color-light);
   justify-self: center;
-  border-radius: 6.25rem;
+  border-radius: 10.25rem;
   place-items: center;
   transition: background .4s;
   /* for dark mode animation */
 }
 
 .home__perfil {
-  width: 170px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   background: var(--gradient-color);
   border-radius: 5.5rem;
   overflow: hidden;
@@ -344,7 +347,7 @@ body.dark-theme {
 }
 
 .home__perfil img {
-  width: 150px;
+  width: 200px;
 }
 
 .home__shape-wawes,
@@ -1236,19 +1239,19 @@ body.dark-theme {
   }
 
   .home__blob{
-    width: 400px;
-    height: 580px;
+    width: 320px;
+    height: 320px;
     border-radius: 12.5rem;
   }
 
   .home__perfil{
-    width: 340px;
-    height: 520px;
+    width: 300px;
+    height: 300px;
     border-radius: 10.6rem;
   }
 
   .home__perfil img{
-    width: 300px;
+    width: 400px;
   }
 
   .home__shape-wawes{
