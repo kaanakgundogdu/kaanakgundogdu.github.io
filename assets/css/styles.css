@@ -1538,3 +1538,10 @@ body {
     transform:translateX(25%);
   }
 }
+
+@media (print), (prefers-reduced-motion) {
+  .animated {
+    animation: unset !important;
+    transition: none !important;
+  }
+}
