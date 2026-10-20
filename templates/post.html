@@ -23,7 +23,7 @@
 {% block content %}
 <article class="post">
   <header class="page-head">
-    <p class="eyebrow"><a href="{{ get_url(path='@/posts/_index.md') }}">~/posts</a>/{{ page.slug }}</p>
+    <p class="eyebrow"><a href="{{ get_url(path='@/blog/_index.md') }}">~/blog</a>/{{ page.slug }}</p>
     <h1 class="display display--sm">{{ page.title }}</h1>
     <p class="meta">
       <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>

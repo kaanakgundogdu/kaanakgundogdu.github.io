@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-{%- set blog = get_section(path="posts/_index.md") %}
+{%- set blog = get_section(path="blog/_index.md") %}
 {%- set projects = get_page(path="projects.md") %}
 {%- set latest = blog.pages | first %}
 
@@ -17,7 +17,7 @@
     <p class="eyebrow">SENIOR C++ ENGINEER / RUST / GAME DEV</p>
     <h1 class="display">Kaan<br><span class="nowrap">Akgündoğdu<span class="cursor cursor--big" aria-hidden="true"></span></span></h1>
     <ul class="ctas">
-      <li><a class="cta cta--primary" href="{{ get_url(path='@/posts/_index.md') }}">read the blog <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a class="cta cta--primary" href="{{ get_url(path='@/blog/_index.md') }}">read the blog <span aria-hidden="true">&rarr;</span></a></li>
       <li><a class="cta" href="{{ get_url(path='@/projects.md') }}">projects</a></li>
       <li><a class="cta" href="{{ get_url(path='@/cv.md') }}">cv</a></li>
     </ul>
@@ -25,7 +25,7 @@
   <figure class="hero__donut">
     <pre data-donut aria-hidden="true"></pre>
     <figcaption>
-      <span>fig.01 — spinning donut, from <a href="{{ get_url(path='@/posts/donut-animation-in-terminal/index.md') }}">this post</a></span>
+      <span>fig.01 — spinning donut, from <a href="{{ get_url(path='@/blog/donut-animation-in-terminal/index.md') }}">this post</a></span>
       <button class="donut-toggle" type="button" data-donut-toggle aria-pressed="false">play</button>
     </figcaption>
   </figure>
@@ -42,7 +42,7 @@
   <dl class="kv">
     <div><dt>WORK</dt><dd>Senior C++ Software Engineer @ Kafein Technology Solutions — <a href="{{ get_url(path='@/cv.md') }}">cv</a></dd></div>
     <div><dt>BUILDING</dt><dd><a href="https://github.com/kaanakgundogdu/godot-vn-engine">godot-vn-engine</a> — visual novel engine for Godot 4</dd></div>
-    <div><dt>WRITING</dt><dd>devlogs about it on <a href="{{ get_url(path='@/posts/_index.md') }}">the blog</a></dd></div>
+    <div><dt>WRITING</dt><dd>devlogs about it on <a href="{{ get_url(path='@/blog/_index.md') }}">the blog</a></dd></div>
     <div><dt>LOCATION</dt><dd>{{ config.extra.location }}</dd></div>
     <div><dt>CONTACT</dt><dd><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></dd></div>
   </dl>
@@ -52,13 +52,13 @@
 </section>
 
 <section class="block">
-  <h2 class="cmd"><span class="accent">$</span> ls -t ~/posts | head -5</h2>
+  <h2 class="cmd"><span class="accent">$</span> ls -t ~/blog | head -5</h2>
   <ul class="rows">
     {%- for p in blog.pages[:5] %}
     {{<post_row p={p} />}}
     {%- endfor %}
   </ul>
-  <a class="more" href="{{ get_url(path='@/posts/_index.md') }}">cd ~/posts &rarr;</a>
+  <a class="more" href="{{ get_url(path='@/blog/_index.md') }}">cd ~/blog &rarr;</a>
 </section>
 
 {%- if projects %}
