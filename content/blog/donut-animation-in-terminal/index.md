@@ -19,7 +19,7 @@ Original blog post is here:
 
 This is what it looks like:
 
-![DonutMath](donutgif.gif)
+![Spinning ASCII donut animation running in the terminal](donutgif.gif)
 
 ## Rust Code
 In the Rust code, I added error handling and used several shorter functions to make the code clearer.

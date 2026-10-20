@@ -132,7 +132,7 @@ I was aware that Godot had plugins and I also wanted to write my own editor tool
 
 **You can see the current version of the new tool below:**
 
-![video](dialog_engine_v001.gif)
+![First version of the custom dialog editor plugin inside the Godot editor](dialog_engine_v001.gif)
 
 Godot is an incredible engine because the editor itself is made with Godot's UI nodes. This means you can use the same nodes you use for your games to build custom tools. 
 
@@ -162,12 +162,12 @@ I also want to mention some small issues with UI nodes and plugin.
 
 You can go project settings/plugins section to enable disable plugin:
 
-![How to enable disable plugin](dialog_engine_plugin_1.png)
+![Enabling the dialog editor plugin in Godot project settings](dialog_engine_plugin_1.png)
 ## Current Version of Development
 
 Here is the final version of the game. You can see it in the GIF below.
 
-![last_version](vn_last_ver.gif)
+![Current version of the visual novel running in Godot](vn_last_ver.gif)
 
 I hope you enjoyed and found this article informative. See you in the next devlog!
 

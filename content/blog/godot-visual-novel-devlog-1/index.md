@@ -17,7 +17,7 @@ In this part, I’ll discuss why I chose JSON and how I implemented it in Godot 
 
 Let's take a look at how our final result will look in the end.
 
-![video](vn1.gif)
+![Visual novel prototype in Godot filling the speaker name and dialog box from JSON](vn1.gif)
 
 In this post I will only focus how to read from Json in Godot and how to fill our Speaker Name and Dialog Box. In later we will dive in to more detailed stuffs like automatically adding next text.
 

@@ -26,11 +26,11 @@ mdbook init book
 ```
 I created a new directory and run the command there. It will ask some questions you can answer whatever you like but i did like this.
 
-![The Rust Logo](01.png)
+![Terminal running mdbook init and answering the setup questions](01.png)
 
 After answering the questions, you can change the current directory into the new book. Here is our folders and files.
 
-![The Rust Logo](02.png)
+![Folder structure of the new book: book, book.toml and src](02.png)
 
 In src folder we have 2 files. SUMMARY.md is a file contains a list of all the chapters in the book. Before a chapter can be viewed, it must be added to this list.
 
@@ -43,7 +43,7 @@ In src folder we have 2 files. SUMMARY.md is a file contains a list of all the c
 The content of your book is all contained in the src directory. Each chapter is a separate Markdown file. In this example it is our first chapter.
 Open chapter_1.md and change it as you like I made mine is like this:
 
-![The Rust Logo](03.png)
+![chapter_1.md opened in the editor with a heading, a few lines and a list](03.png)
 
 Our book is ready run this command and to see your book in the browser.
 
@@ -53,11 +53,11 @@ mdbook build --open
 
 Congratulations, your page should look like this.
 
-![The Rust Logo](04.png)
+![The built mdBook page showing Chapter 1 in the browser](04.png)
 
 And if you click 3 lines on the top left (listing sidebar) you will see your page like this:
 
-![The Rust Logo](05.png)
+![The mdBook page with the chapter sidebar open](05.png)
 
 
 This post was a very simple example. I don't want to dive too deep. But you can do what markdown offers in this book. Like adding link, pictures, lists and so on. This is it our page is ready and you can make your own blog page or book with mdBook. Thanks for reading this far. If you want you can follow me on Github or send connection on LinkedIn. 
