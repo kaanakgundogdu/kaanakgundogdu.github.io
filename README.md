@@ -1,6 +1,18 @@
-# Portfolio Website
-A portfolio website using JavaScript, HTML, and CSS
-# [*kaanakgundogdu.github.io*](https://kaanakgundogdu.github.io/)
-### Sources:
-- [Bedimcode's Youtube Video](https://www.youtube.com/watch?v=5-_2z-DdWng)
-- [Bedimcode's Github Starter Project](https://github.com/bedimcode/responsive-portfolio-website-chris)
+# kaanakgundogdu.github.io
+
+Personal site, blog and CV of Kaan Akgündoğdu.
+
+Live: https://kaanakgundogdu.github.io
+
+Built with [Zola](https://www.getzola.org).
+
+```sh
+zola serve
+zola build
+```
+
+New post: `content/blog/<slug>/index.md`, images next to it.
+
+## License
+
+Code is MIT. Blog posts and images are © Kaan Akgündoğdu. Fonts (JetBrains Mono, Space Grotesk) are under the SIL Open Font License, see `static/fonts`.
