@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}CV — {{ config.extra.author }}{% endblock %}
+{% block og_title %}CV — {{ config.extra.author }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">{{<person cfg={config} />}}</script>
+{% endblock %}
+
+{% block content %}
+{%- set cv = page.extra %}
+<article class="cv">
+  <header class="page-head cv__head">
+    <p class="eyebrow">~/cv — last updated {{ (page.updated or now()) | date(format="%Y-%m") }}</p>
+    <h1 class="display display--md">{{ config.extra.author }}</h1>
+    <p class="meta">
+      <span>{{ config.extra.job }}</span>
+      <span>{{ config.extra.location }}</span>
+      <a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a>
+      <a href="{{ config.extra.github }}">github.com/kaanakgundogdu</a>
+      <a href="{{ config.extra.linkedin }}">linkedin.com/in/kaanakgundogdu</a>
+    </p>
+    <button class="btn no-print" type="button" data-print>print / save as pdf</button>
+  </header>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> cat summary</h2>
+    <p class="lede">{{ cv.summary }}</p>
+  </section>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> cat experience</h2>
+    <ol class="timeline">
+      {%- for e in cv.experience %}
+      <li>
+        <span class="timeline__when">{{ e.when }}</span>
+        <div>
+          <h3>{{ e.role }} <span class="dim">@ {{ e.org }}, {{ e.place }}</span></h3>
+          <p>{{ e.desc }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> cat education</h2>
+    <ol class="timeline">
+      {%- for e in cv.education %}
+      <li>
+        <span class="timeline__when">{{ e.when }}</span>
+        <div><h3>{{ e.role }} <span class="dim">@ {{ e.org }}, {{ e.place }}</span></h3></div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> cat skills</h2>
+    <dl class="kv">
+      {%- for s in cv.skills %}
+      <div><dt>{{ s.group | upper }}</dt><dd>{{ s.items }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </section>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> ls certificates</h2>
+    <ul class="rows rows--plain">
+      {%- for c in cv.certs %}
+      <li class="row">
+        <span class="row__lang">[{{ c.org }}]</span>
+        {%- if c.url %}<a class="row__title" href="{{ c.url }}">{{ c.name }}</a>{% else %}<span class="row__title">{{ c.name }}</span>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+</article>
+{% endblock %}

@@ -1,0 +1,41 @@
+base_url = "https://kaanakgundogdu.github.io"
+title = "Kaan Akgündoğdu"
+description = "Kaan Akgündoğdu (Kaan Akgundogdu) — software engineer from Istanbul. Blog about Rust, Godot, game development and the terminal."
+default_language = "en"
+compile_sass = true
+minify_html = false
+build_search_index = false
+skip_content_templating = ["blog/**"]
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+taxonomies = [
+  { name = "tags", feed = true },
+]
+
+[markdown]
+smart_punctuation = false
+external_links_target_blank = true
+external_links_no_referrer = true
+
+[markdown.highlighting]
+theme = "vesper"
+style = "class"
+
+[extra]
+author = "Kaan Akgündoğdu"
+author_ascii = "Kaan Akgundogdu"
+job = "Software Engineer"
+location = "Istanbul, Türkiye"
+email = "kaanakgundogdu@gmail.com"
+github = "https://github.com/kaanakgundogdu"
+linkedin = "https://www.linkedin.com/in/kaanakgundogdu/"
+since = "2024-08-31"
+google_verification = ""
+
+nav = [
+  { key = "01", name = "home", path = "/" },
+  { key = "02", name = "blog", path = "/blog/" },
+  { key = "03", name = "projects", path = "/projects/" },
+  { key = "04", name = "cv", path = "/cv/" },
+]

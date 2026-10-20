@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Projects — {{ config.title }}{% endblock %}
+{% block og_title %}Projects — {{ config.title }}{% endblock %}
+
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow">~/projects — {{ page.extra.projects | length }} entries</p>
+  <h1 class="display display--md">Projects</h1>
+  <p class="lede">{{ page.description }} More on <a href="{{ config.extra.github }}">GitHub</a>.</p>
+</header>
+
+{%- for year in [p.year for p in page.extra.projects] | unique %}
+<section class="block">
+  <h2 class="cmd"><span class="accent">$</span> ls ~/projects/{{ year }}</h2>
+  <div class="cards">
+    {%- for p in page.extra.projects %}{% if p.year == year %}
+    {{<project_card p={p} />}}
+    {%- endif %}{% endfor %}
+  </div>
+</section>
+{%- endfor %}
+{% endblock %}

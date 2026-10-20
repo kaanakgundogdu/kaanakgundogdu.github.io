@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — {{ config.title }}{% endblock %}
+{% block og_title %}{{ page.title }}{% endblock %}
+{% block og_type %}article{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | json_encode | safe }},
+  "description": {{ (page.description or "") | json_encode | safe }},
+  "datePublished": "{{ page.date }}",
+  "dateModified": "{{ page.updated or page.date }}",
+  "inLanguage": "{{ page.extra?.lang or 'en' }}",
+  "url": "{{ page.permalink }}",
+  "author": {{<person cfg={config} />}}
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="post">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ get_url(path='@/blog/_index.md') }}">~/blog</a>/{{ page.slug }}</p>
+    <h1 class="display display--sm">{{ page.title }}</h1>
+    <p class="meta">
+      <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+      <span>{{ page.reading_time }} min</span>
+      <span>[{{ page.extra?.lang or "en" }}]</span>
+      {%- for t in page.taxonomies?.tags or [] %}
+      <a href="{{ get_taxonomy_url(kind='tags', term=t) }}">#{{ t }}</a>
+      {%- endfor %}
+    </p>
+  </header>
+
+  {%- if page.toc | length > 1 %}
+  <details class="toc">
+    <summary>contents</summary>
+    <ol>
+      {%- for h in page.toc %}
+      <li><a href="{{ h.permalink | safe }}">{{ h.title }}</a></li>
+      {%- endfor %}
+    </ol>
+  </details>
+  {%- endif %}
+
+  <div class="prose">
+    {{ page.content | safe }}
+  </div>
+
+  <nav class="pager" aria-label="more posts">
+    {%- if page.higher %}
+    <a href="{{ page.higher.permalink }}" rel="next"><span class="dim">&larr; newer</span>{{ page.higher.title }}</a>
+    {%- else %}<span></span>{% endif %}
+    {%- if page.lower %}
+    <a href="{{ page.lower.permalink }}" rel="prev"><span class="dim">older &rarr;</span>{{ page.lower.title }}</a>
+    {%- endif %}
+  </nav>
+</article>
+{% endblock %}

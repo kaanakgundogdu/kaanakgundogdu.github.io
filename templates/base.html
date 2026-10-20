@@ -1,0 +1,96 @@
+{%- set doc_lang = config.default_language -%}
+{%- if page?.extra?.lang -%}{%- set doc_lang = page.extra.lang -%}{%- endif -%}
+{%- set desc = config.description -%}
+{%- if page?.description -%}{%- set desc = page.description -%}{%- elif section?.description -%}{%- set desc = section.description -%}{%- endif -%}
+{%- set path = current_path or "/404" -%}
+<!doctype html>
+<html lang="{{ doc_lang }}" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock %}</title>
+  <meta name="description" content="{{ desc }}">
+  <meta name="author" content="{{ config.extra.author }}">
+  <link rel="canonical" href="{{ current_url or config.base_url }}">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0d0e0c">
+  {%- if config.extra.google_verification %}
+  <meta name="google-site-verification" content="{{ config.extra.google_verification }}">
+  {%- endif %}
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta property="og:title" content="{% block og_title %}{{ config.title }}{% endblock %}">
+  <meta property="og:description" content="{{ desc }}">
+  <meta property="og:url" content="{{ current_url or config.base_url }}">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:locale" content="{% if doc_lang == 'tr' %}tr_TR{% else %}en_US{% endif %}">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="{{ get_url(path='favicon.svg') }}" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ config.title }}" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
+  <link rel="preload" href="{{ get_url(path='fonts/jetbrains-mono-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ get_url(path='fonts/space-grotesk-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+  <link rel="stylesheet" href="{{ get_url(path='giallo.css', cachebust=true) }}">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;else if(matchMedia("(prefers-color-scheme: light)").matches)document.documentElement.dataset.theme="light";if(localStorage.getItem("crt"))document.documentElement.classList.add("crt")}catch(e){}</script>
+  {% block jsonld %}{% endblock %}
+</head>
+<body>
+  <a class="skip" href="#main">skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="sysbar">
+    <dl class="sysbar__col">
+      <div><dt>SYS.USER</dt><dd><a href="{{ get_url(path='/') }}">kaan</a></dd></div>
+      <div><dt>SYS.NODE</dt><dd>istanbul</dd></div>
+      <div><dt>SYS.PATH</dt><dd class="accent">~{{ path | trim_end(pat="/") }}</dd></div>
+    </dl>
+    <dl class="sysbar__col sysbar__col--right">
+      <div><dt>UPTIME</dt><dd><span data-uptime="{{ config.extra.since }}">--</span></dd></div>
+      <div><dt>LOCAL</dt><dd><span data-clock>--:--</span> IST</dd></div>
+      <div><dt>THEME</dt><dd><button class="linkish" type="button" data-theme-toggle aria-label="toggle color theme"><span data-theme-label>dark</span></button></dd></div>
+    </dl>
+  </header>
+
+  <main id="main" class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="dock">
+    <button class="prompt" type="button" data-palette-open aria-haspopup="dialog">
+      <span class="prompt__user">kaan@istanbul</span><span class="prompt__sep">:~$</span>
+      <span class="prompt__hint">type <kbd>/</kbd> for commands</span><span class="cursor" aria-hidden="true"></span>
+    </button>
+    <nav class="tabs" aria-label="main">
+      <span class="tabs__label">root@kaan/nav &gt; SELECT MODULE [&larr;&rarr; or click]</span>
+      <ul>
+        {%- for item in config.extra.nav %}
+        {%- set active = item.path == "/" and path == "/" or item.path != "/" and path is starting_with(pat=item.path) %}
+        <li><a href="{{ get_url(path=item.path) }}" data-nav{% if active %} aria-current="page"{% endif %}>{% if active %}&gt; {% endif %}{{ item.key }}._{{ item.name | upper }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <p class="colophon">
+      <span>&copy; {{ now() | date(format="%Y") }} {{ config.extra.author }}</span>
+      <span>built with <a href="https://www.getzola.org">zola</a></span>
+      <a href="{{ get_url(path='atom.xml', trailing_slash=false) }}">rss</a>
+      <a href="{{ config.extra.github }}" rel="me">github</a>
+      <a href="{{ config.extra.linkedin }}" rel="me">linkedin</a>
+    </p>
+  </footer>
+
+  <dialog class="palette" data-palette aria-label="command palette">
+    <form method="dialog" class="palette__box">
+      <label class="palette__input">
+        <span class="accent" aria-hidden="true">/</span>
+        <input type="text" name="q" placeholder="go to, search posts, run a command…" autocomplete="off" spellcheck="false" aria-controls="palette-list">
+      </label>
+      <ul id="palette-list" class="palette__list" role="listbox"></ul>
+      <p class="palette__foot"><kbd>&uarr;&darr;</kbd> move <kbd>enter</kbd> open <kbd>esc</kbd> close</p>
+    </form>
+  </dialog>
+
+  {%- set blog = get_section(path="blog/_index.md") %}
+  <script type="application/json" id="site-index">{{ [{"t": p.title, "u": p.permalink, "d": p.date, "g": (p.taxonomies?.tags or []) | join(sep=" ")} for p in blog.pages] | json_encode | safe }}</script>
+  <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.extra.author }} — {{ config.extra.job }}{% endblock %}
+{% block og_title %}{{ config.extra.author }} — {{ config.extra.job }}{% endblock %}
+
+{% block jsonld %}
+<script type="application/ld+json">{{<person cfg={config} />}}</script>
+{% endblock %}
+
+{% block content %}
+{%- set blog = get_section(path="blog/_index.md") %}
+{%- set projects = get_page(path="projects.md") %}
+{%- set latest = blog.pages | first %}
+
+<section class="hero">
+  <div class="hero__text">
+    <p class="eyebrow">SOFTWARE ENGINEER / GAME DEV / TERMINAL DWELLER</p>
+    <h1 class="display">Kaan<br><span class="nowrap">Akgündoğdu<span class="cursor cursor--big" aria-hidden="true"></span></span></h1>
+  </div>
+  <figure class="hero__donut" aria-hidden="true">
+    <pre data-donut></pre>
+    <figcaption>fig.01 — <a href="{{ get_url(path='@/blog/donut-animation-in-terminal/index.md') }}" tabindex="-1">donut.c</a></figcaption>
+  </figure>
+</section>
+
+<section class="block">
+  <h2 class="cmd"><span class="accent">$</span> whoami</h2>
+  <p class="lede">Software engineer from Istanbul with an electrical &amp; electronics engineering background. Started out in mobile games, still making games: currently a visual novel engine for Godot. In between: C++, Rust, small browser extensions, a bit of machine learning, and way too much time in Neovim.</p>
+</section>
+
+<section class="block">
+  <h2 class="cmd"><span class="accent">$</span> cat now.txt</h2>
+  <dl class="kv">
+    <div><dt>BUILDING</dt><dd><a href="https://github.com/kaanakgundogdu/godot-vn-engine">godot-vn-engine</a> — visual novel engine for Godot 4</dd></div>
+    <div><dt>WRITING</dt><dd>devlogs about it on <a href="{{ get_url(path='@/blog/_index.md') }}">the blog</a></dd></div>
+    <div><dt>LOCATION</dt><dd>{{ config.extra.location }}</dd></div>
+    <div><dt>CONTACT</dt><dd><a href="mailto:{{ config.extra.email }}">{{ config.extra.email }}</a></dd></div>
+  </dl>
+  {%- if latest %}
+  <a class="badge" href="{{ latest.permalink }}"><span class="dot" aria-hidden="true"></span>LATEST POST — {{ latest.title | upper }}</a>
+  {%- endif %}
+</section>
+
+<section class="block">
+  <h2 class="cmd"><span class="accent">$</span> ls -t ~/blog | head -5</h2>
+  <ul class="rows">
+    {%- for p in blog.pages[:5] %}
+    {{<post_row p={p} />}}
+    {%- endfor %}
+  </ul>
+  <a class="more" href="{{ get_url(path='@/blog/_index.md') }}">cd ~/blog &rarr;</a>
+</section>
+
+{%- if projects %}
+<section class="block">
+  <h2 class="cmd"><span class="accent">$</span> ls ~/projects --featured</h2>
+  <div class="cards">
+    {%- for p in projects.extra.projects %}{% if p.featured %}
+    {{<project_card p={p} />}}
+    {%- endif %}{% endfor %}
+  </div>
+  <a class="more" href="{{ get_url(path='@/projects.md') }}">cd ~/projects &rarr;</a>
+</section>
+{%- endif %}
+
+<p class="tip">TIP: <kbd>&larr;</kbd><kbd>&rarr;</kbd> to switch modules — <kbd>/</kbd> for commands</p>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ get_url(path='js/donut.js', cachebust=true) }}" defer></script>
+{% endblock %}

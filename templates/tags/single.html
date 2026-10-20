@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}#{{ term.name }} — {{ config.title }}{% endblock %}
+
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow"><a href="{{ get_url(path='@/blog/_index.md') }}">~/blog</a> — grep "#{{ term.name }}"</p>
+  <h1 class="display display--md">#{{ term.name }}</h1>
+</header>
+<section class="block">
+  <ul class="rows">
+    {%- for p in term.pages %}
+    {{<post_row p={p} />}}
+    {%- endfor %}
+  </ul>
+  <a class="more" href="{{ get_taxonomy_url(kind='tags', term=term.name) }}atom.xml">rss for #{{ term.name }}</a>
+</section>
+{% endblock %}

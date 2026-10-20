@@ -1,0 +1,38 @@
+{% component post_row(p) -%}
+<li class="row">
+  <time datetime="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}</time>
+  <span class="row__lang">[{{ p.extra?.lang or "en" }}]</span>
+  <a class="row__title" href="{{ p.permalink }}">{{ p.title }}</a>
+  {%- if p.taxonomies?.tags %}
+  <span class="row__tags">{% for t in p.taxonomies.tags %}#{{ t }}{% if not loop.last %} {% endif %}{% endfor %}</span>
+  {%- endif %}
+</li>
+{%- endcomponent post_row %}
+
+{% component project_card(p) -%}
+<article class="card">
+  <header class="card__head">
+    <span class="card__lang">{{ p.lang }}</span>
+    <span class="card__year">{{ p.year }}</span>
+  </header>
+  <h3 class="card__title"><a href="{{ p.url }}">{{ p.name }}</a></h3>
+  <p>{{ p.desc }}</p>
+  {%- if p?.post %}
+  <a class="card__more" href="{{ get_url(path=p.post) }}">read the post &rarr;</a>
+  {%- endif %}
+</article>
+{%- endcomponent project_card %}
+
+{% component person(cfg) -%}
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ cfg.extra.author | json_encode | safe }},
+  "alternateName": {{ cfg.extra.author_ascii | json_encode | safe }},
+  "jobTitle": {{ cfg.extra.job | json_encode | safe }},
+  "url": {{ cfg.base_url | json_encode | safe }},
+  "email": "mailto:{{ cfg.extra.email }}",
+  "address": { "@type": "PostalAddress", "addressLocality": "Istanbul", "addressCountry": "TR" },
+  "sameAs": [{{ cfg.extra.github | json_encode | safe }}, {{ cfg.extra.linkedin | json_encode | safe }}]
+}
+{%- endcomponent person %}
