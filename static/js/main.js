@@ -81,6 +81,7 @@
     ...navLinks.map((a) => ({ t: a.textContent.replace(/^>\s*/, "").toLowerCase(), k: "goto", run: () => go(a.href) })),
     { t: "toggle theme", k: "cmd", run: toggleTheme },
     { t: "toggle crt mode", k: "cmd", run: toggleCrt },
+    ...($("[data-donut-toggle]") ? [{ t: "toggle donut", k: "cmd", run: () => $("[data-donut-toggle]").click() }] : []),
     { t: "random post", k: "cmd", run: () => posts.length && go(posts[Math.floor(Math.random() * posts.length)].u) },
     { t: "rss feed", k: "link", run: () => go("/atom.xml") },
     { t: "github", k: "link", run: () => go("https://github.com/kaanakgundogdu") },

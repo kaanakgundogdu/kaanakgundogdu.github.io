@@ -35,6 +35,9 @@
   };
 
   const still = matchMedia("(prefers-reduced-motion: reduce)");
+  const btn = document.querySelector("[data-donut-toggle]");
+  const saved = (() => { try { return localStorage.getItem("donut"); } catch (e) { return null; } })();
+  let playing = saved ? saved === "on" : !still.matches;
   let visible = true;
   let last = 0;
   let raf = 0;
@@ -50,20 +53,28 @@
 
   const sync = () => {
     cancelAnimationFrame(raf);
-    if (!still.matches && visible && !document.hidden) raf = requestAnimationFrame(loop);
+    if (playing && visible && !document.hidden) raf = requestAnimationFrame(loop);
+    if (btn) {
+      btn.textContent = playing ? "pause" : "play";
+      btn.setAttribute("aria-pressed", String(playing));
+    }
   };
 
   frame();
+  sync();
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }).observe(pre);
   document.addEventListener("visibilitychange", sync);
-  still.addEventListener?.("change", sync);
+  still.addEventListener?.("change", () => { if (!saved) { playing = !still.matches; sync(); } });
+  btn?.addEventListener("click", () => {
+    playing = !playing;
+    try { localStorage.setItem("donut", playing ? "on" : "off"); } catch (e) {}
+    sync();
+  });
 
-  let spin = 0;
   pre.closest("figure")?.addEventListener("pointermove", (e) => {
     const r = pre.getBoundingClientRect();
     const dx = (e.clientX - r.left) / r.width - 0.5;
-    spin = dx * 0.08;
-    B += spin;
-    if (still.matches) frame();
+    B += dx * 0.08;
+    if (!playing) frame();
   });
 })();
