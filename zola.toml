@@ -31,7 +31,7 @@ email = "kaanakgundogdu@gmail.com"
 github = "https://github.com/kaanakgundogdu"
 linkedin = "https://www.linkedin.com/in/kaanakgundogdu/"
 since = "2024-08-31"
-google_verification = ""
+google_verification = "okkdJr3C2xAvprJbtjUV-EP6yDBS1ULQk0-M4f-vfvI"
 
 nav = [
   { key = "01", name = "home", path = "/" },
