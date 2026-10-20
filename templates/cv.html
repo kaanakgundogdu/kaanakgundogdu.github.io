@@ -35,8 +35,12 @@
       <li>
         <span class="timeline__when">{{ e.when }}</span>
         <div>
-          <h3>{{ e.role }} <span class="dim">@ {{ e.org }}, {{ e.place }}</span></h3>
-          <p>{{ e.desc }}</p>
+          <h3>{{ e.role }} <span class="dim">@ {{ e.org }}</span></h3>
+          <ul class="points">
+            {%- for pt in e.points %}
+            <li>{{ pt }}</li>
+            {%- endfor %}
+          </ul>
         </div>
       </li>
       {%- endfor %}
@@ -49,7 +53,7 @@
       {%- for e in cv.education %}
       <li>
         <span class="timeline__when">{{ e.when }}</span>
-        <div><h3>{{ e.role }} <span class="dim">@ {{ e.org }}, {{ e.place }}</span></h3></div>
+        <div><h3>{{ e.role }} <span class="dim">@ {{ e.org }}</span></h3></div>
       </li>
       {%- endfor %}
     </ol>
@@ -62,6 +66,18 @@
       <div><dt>{{ s.group | upper }}</dt><dd>{{ s.items }}</dd></div>
       {%- endfor %}
     </dl>
+  </section>
+
+  <section class="block">
+    <h2 class="cmd"><span class="accent">$</span> git log --author=kaan --open-source</h2>
+    <ul class="rows rows--plain">
+      {%- for o in cv.oss %}
+      <li class="row">
+        <span class="row__lang">[{{ o.org }}]</span>
+        <span><a class="row__title" href="{{ o.url }}">{{ o.name }}</a> <span class="dim">— {{ o.desc }}</span></span>
+      </li>
+      {%- endfor %}
+    </ul>
   </section>
 
   <section class="block">

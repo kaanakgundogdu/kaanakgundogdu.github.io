@@ -10,6 +10,8 @@ projects = [
   { name = "monte-carlo-sim3d", lang = "JavaScript", year = "2026", featured = true, url = "https://github.com/kaanakgundogdu/monte-carlo-sim3d", desc = "Interactive 3D Monte Carlo simulation framework in the browser." },
   { name = "ecg-rp-cnn", lang = "Python", year = "2026", url = "https://github.com/kaanakgundogdu/ecg-rp-cnn", desc = "ECG arrhythmia classification using recurrence plots and a convolutional neural network." },
   { name = "yt_region_filter", lang = "JavaScript", year = "2026", url = "https://github.com/kaanakgundogdu/yt_region_filter", desc = "Chrome extension that filters YouTube content by region." },
+  { name = "gt-gen-core", lang = "C++ / OSS", year = "2025", url = "https://gitlab.eclipse.org/eclipse/openpass/gt-gen-core", desc = "Eclipse openPASS simulation core. Contributed to map ingestion logic and high-performance data processing pipelines." },
+  { name = "road-logic-suite", lang = "C++ / OSS", year = "2025", url = "https://gitlab.eclipse.org/eclipse/openpass/road-logic-suite", desc = "Eclipse openPASS road network library. Contributed to road network logic and spatial data handling." },
   { name = "elimino", lang = "Web", year = "2025", url = "https://github.com/kaanakgundogdu/elimino", desc = "Bracket-style web app where you pick between image cards round by round." },
   { name = "adventofcode2025", lang = "C++", year = "2025", url = "https://github.com/kaanakgundogdu/adventofcode2025", desc = "Advent of Code 2025 solutions." },
   { name = "terminal donut", lang = "C / Rust", year = "2024", url = "https://github.com/kaanakgundogdu/blog", post = "@/blog/donut-animation-in-terminal/index.md", desc = "The famous spinning ASCII donut, rewritten in C and Rust. It is also spinning on the home page." },

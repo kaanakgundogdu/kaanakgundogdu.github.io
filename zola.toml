@@ -1,6 +1,6 @@
 base_url = "https://kaanakgundogdu.github.io"
 title = "Kaan Akgündoğdu"
-description = "Kaan Akgündoğdu (Kaan Akgundogdu) — software engineer from Istanbul. Blog about Rust, Godot, game development and the terminal."
+description = "Kaan Akgündoğdu (Kaan Akgundogdu) — Senior C++ Software Engineer in Istanbul. Blog about C++, Rust, Godot, game development and the terminal."
 default_language = "en"
 compile_sass = true
 minify_html = false
@@ -25,7 +25,7 @@ style = "class"
 [extra]
 author = "Kaan Akgündoğdu"
 author_ascii = "Kaan Akgundogdu"
-job = "Software Engineer"
+job = "Senior Software Engineer"
 location = "Istanbul, Türkiye"
 email = "kaanakgundogdu@gmail.com"
 github = "https://github.com/kaanakgundogdu"

@@ -376,6 +376,20 @@ main.wrap {
   letter-spacing: 0.06em;
 }
 
+.donut-toggle {
+  margin-left: 0.75rem;
+  color: var(--accent);
+  letter-spacing: inherit;
+}
+
+.donut-toggle::before {
+  content: "[ ";
+}
+
+.donut-toggle::after {
+  content: " ]";
+}
+
 @media (min-width: 56rem) {
   .hero {
     grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
@@ -550,7 +564,7 @@ a.row__title:focus-visible::after {
     margin-left: -2ch;
   }
   .rows--plain .row {
-    grid-template-columns: 11ch 1fr;
+    grid-template-columns: 20ch 1fr;
   }
 }
 
@@ -890,7 +904,7 @@ a.row__title:focus-visible::after {
   padding: 0;
 }
 
-.timeline li {
+.timeline > li {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.25rem 1.5rem;
@@ -908,13 +922,28 @@ a.row__title:focus-visible::after {
   font-weight: 600;
 }
 
+.points {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--fg-2);
+}
+
+.points li + li {
+  margin-top: 0.2rem;
+}
+
+.points li::marker {
+  content: "- ";
+  color: var(--accent);
+}
+
 .timeline p {
   margin: 0.25rem 0 0;
   color: var(--fg-2);
 }
 
 @media (min-width: 40rem) {
-  .timeline li {
+  .timeline > li {
     grid-template-columns: 16ch 1fr;
   }
 }
