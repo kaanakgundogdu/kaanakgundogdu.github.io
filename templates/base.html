@@ -50,6 +50,19 @@
     </dl>
   </header>
 
+  <nav class="topnav" aria-label="primary">
+    <a class="topnav__brand" href="{{ get_url(path='/') }}">kaan<span class="accent">@</span>akgündoğdu</a>
+    <ul class="topnav__links">
+      {%- for item in config.extra.nav %}{% if item.path != "/" %}
+      <li><a href="{{ get_url(path=item.path) }}"{% if path is starting_with(pat=item.path) %} aria-current="page"{% endif %}><span class="topnav__key">{{ item.key }}</span>{{ item.name }}</a></li>
+      {%- endif %}{% endfor %}
+      <li><a href="{{ config.extra.github }}" rel="me"><span class="topnav__key">&nearr;</span>github</a></li>
+    </ul>
+    <button class="topnav__search" type="button" data-palette-open aria-haspopup="dialog" aria-label="search and commands">
+      <span class="topnav__search-label">search</span><kbd>/</kbd>
+    </button>
+  </nav>
+
   <main id="main" class="wrap">
     {% block content %}{% endblock %}
   </main>
@@ -57,7 +70,7 @@
   <footer class="dock">
     <button class="prompt" type="button" data-palette-open aria-haspopup="dialog">
       <span class="prompt__user">kaan@istanbul</span><span class="prompt__sep">:~$</span>
-      <span class="prompt__hint">type <kbd>/</kbd> for commands</span><span class="cursor" aria-hidden="true"></span>
+      <span class="prompt__hint">search posts, jump to a page or run a command — click or press <kbd>/</kbd></span><span class="cursor" aria-hidden="true"></span>
     </button>
     <nav class="tabs" aria-label="main">
       <span class="tabs__label">root@kaan/nav &gt; SELECT MODULE [&larr;&rarr; or click]</span>

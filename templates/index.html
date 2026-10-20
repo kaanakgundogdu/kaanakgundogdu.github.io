@@ -16,16 +16,25 @@
   <div class="hero__text">
     <p class="eyebrow">SENIOR C++ ENGINEER / RUST / GAME DEV</p>
     <h1 class="display">Kaan<br><span class="nowrap">Akgündoğdu<span class="cursor cursor--big" aria-hidden="true"></span></span></h1>
+    <ul class="ctas">
+      <li><a class="cta cta--primary" href="{{ get_url(path='@/blog/_index.md') }}">read the blog <span aria-hidden="true">&rarr;</span></a></li>
+      <li><a class="cta" href="{{ get_url(path='@/projects.md') }}">projects</a></li>
+      <li><a class="cta" href="{{ get_url(path='@/cv.md') }}">cv</a></li>
+    </ul>
   </div>
   <figure class="hero__donut">
     <pre data-donut aria-hidden="true"></pre>
-    <figcaption>fig.01 — <a href="{{ get_url(path='@/blog/donut-animation-in-terminal/index.md') }}">donut.c</a> <button class="linkish donut-toggle" type="button" data-donut-toggle aria-pressed="false">play</button></figcaption>
+    <figcaption>
+      <span>fig.01 — spinning donut, from <a href="{{ get_url(path='@/blog/donut-animation-in-terminal/index.md') }}">this post</a></span>
+      <button class="donut-toggle" type="button" data-donut-toggle aria-pressed="false">play</button>
+    </figcaption>
   </figure>
 </section>
 
 <section class="block">
   <h2 class="cmd"><span class="accent">$</span> whoami</h2>
-  <p class="lede">Senior C++ software engineer from Istanbul. Electrical &amp; electronics engineer by degree, started out making mobile games, then moved to systems work: Rust and C++ at Huawei, autonomous driving simulation at Luxoft, and now telecom infrastructure at Kafein. After hours I still make games, write about it here, and spend way too much time in Neovim.</p>
+  <p class="lede">Hi, I'm Kaan. I'm a C++ developer from Istanbul. I studied electrical &amp; electronics engineering, made mobile games for a while and then got hooked on systems programming. I wrote Rust and C++ at Huawei, worked on autonomous driving simulations at Luxoft, and now I'm building telecom systems with C++ at Kafein.</p>
+  <p class="lede">In my free time I'm making a visual novel with Godot, writing about it here, and probably changing my Neovim config again.</p>
 </section>
 
 <section class="block">
@@ -64,7 +73,7 @@
 </section>
 {%- endif %}
 
-<p class="tip">TIP: <kbd>&larr;</kbd><kbd>&rarr;</kbd> to switch modules — <kbd>/</kbd> for commands</p>
+<p class="tip">TIP: press <kbd>/</kbd> to search, <kbd>1</kbd>–<kbd>4</kbd> or <kbd>&larr;</kbd><kbd>&rarr;</kbd> to switch pages</p>
 {% endblock %}
 
 {% block scripts %}

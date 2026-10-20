@@ -56,7 +56,7 @@
   --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
   --display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --gutter: 16px;
-  --max: 72rem;
+  --max: 78rem;
   color-scheme: dark;
 }
 
@@ -263,6 +263,97 @@ kbd {
   text-align: right;
 }
 
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding: 0.9rem var(--gutter);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.topnav__brand {
+  margin-right: auto;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.topnav__links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.topnav__links a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.topnav__links a:hover {
+  border-color: var(--line);
+}
+
+.topnav__links a[aria-current="page"] {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.topnav__key {
+  color: var(--dim);
+  font-size: 11px;
+}
+
+.topnav__search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.75rem;
+  font: inherit;
+  color: var(--fg-2);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.topnav__search:hover {
+  color: var(--fg);
+  border-color: var(--accent);
+}
+
+@media (max-width: 40rem) {
+  .topnav {
+    gap: 0.5rem;
+  }
+  .topnav__brand {
+    flex-basis: calc(100% - 3.5rem);
+  }
+  .topnav__links {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .topnav__links a {
+    padding: 0.3rem 0.5rem;
+  }
+  .topnav__search-label {
+    display: none;
+  }
+}
+
 .linkish {
   font: inherit;
   color: inherit;
@@ -369,25 +460,78 @@ main.wrap {
 }
 
 .hero__donut figcaption {
-  margin-top: 0.5rem;
-  font-size: 11px;
-  color: var(--dim);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--line);
+  font-size: 12px;
+  color: var(--fg-2);
 }
 
 .donut-toggle {
-  margin-left: 0.75rem;
+  padding: 0.2rem 0.7rem;
+  font: inherit;
   color: var(--accent);
-  letter-spacing: inherit;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+  cursor: pointer;
+}
+
+.donut-toggle:hover,
+.donut-toggle[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
 }
 
 .donut-toggle::before {
-  content: "[ ";
+  content: "\25B6  ";
 }
 
-.donut-toggle::after {
-  content: " ]";
+.donut-toggle[aria-pressed="true"]::before {
+  content: "|| ";
+}
+
+.ctas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg-2) 80%, transparent);
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.cta:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cta--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.cta--primary:hover {
+  color: var(--accent-ink);
+  box-shadow: 0 0 22px var(--glow);
+}
+
+.lede + .lede {
+  margin-top: 1rem;
 }
 
 @media (min-width: 56rem) {
@@ -543,6 +687,13 @@ a.row__title:hover::after,
 a.row__title:focus-visible::before,
 a.row__title:focus-visible::after {
   color: var(--accent);
+}
+
+@media (max-width: 47.99rem) {
+  .row__title::before,
+  .row__title::after {
+    content: none;
+  }
 }
 
 .row__tags {
@@ -1179,6 +1330,12 @@ a.row__title:focus-visible::after {
   .tabs a {
     padding-inline: 0.5rem;
     font-size: 12px;
+  }
+}
+
+@media (min-width: 100rem) {
+  body {
+    font-size: 15px;
   }
 }
 
