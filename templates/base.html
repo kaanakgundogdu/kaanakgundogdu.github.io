@@ -101,7 +101,7 @@
     </form>
   </dialog>
 
-  {%- set blog = get_section(path="blog/_index.md") %}
+  {%- set blog = get_section(path="posts/_index.md") %}
   <script type="application/json" id="site-index">{{ [{"t": p.title, "u": p.permalink, "d": p.date, "g": (p.taxonomies?.tags or []) | join(sep=" ")} for p in blog.pages] | json_encode | safe }}</script>
   <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
   {% block scripts %}{% endblock %}

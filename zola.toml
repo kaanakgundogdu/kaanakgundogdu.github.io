@@ -5,7 +5,7 @@ default_language = "en"
 compile_sass = true
 minify_html = false
 build_search_index = false
-skip_content_templating = ["blog/**"]
+skip_content_templating = ["posts/**"]
 generate_feeds = true
 feed_filenames = ["atom.xml"]
 
@@ -35,7 +35,7 @@ google_verification = ""
 
 nav = [
   { key = "01", name = "home", path = "/" },
-  { key = "02", name = "blog", path = "/blog/" },
+  { key = "02", name = "blog", path = "/posts/" },
   { key = "03", name = "projects", path = "/projects/" },
   { key = "04", name = "cv", path = "/cv/" },
 ]

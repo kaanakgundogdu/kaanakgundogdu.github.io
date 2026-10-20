@@ -5,7 +5,7 @@
 
 {% block content %}
 <header class="page-head">
-  <p class="eyebrow">~/blog — {{ section.pages | length }} entries</p>
+  <p class="eyebrow">~/posts — {{ section.pages | length }} entries</p>
   <h1 class="display display--md">Blog</h1>
   <p class="lede">{{ section.description }}</p>
   {%- set tags = get_taxonomy(kind="tags") %}
@@ -18,7 +18,7 @@
 
 {%- for year in [p.year for p in section.pages] | unique %}
 <section class="block">
-  <h2 class="cmd"><span class="accent">$</span> ls ~/blog/{{ year }}</h2>
+  <h2 class="cmd"><span class="accent">$</span> ls ~/posts/{{ year }}</h2>
   <ul class="rows">
     {%- for p in section.pages %}{% if p.year == year %}
     {{<post_row p={p} />}}
