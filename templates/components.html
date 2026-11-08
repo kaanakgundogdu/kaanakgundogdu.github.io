@@ -36,3 +36,13 @@
   "sameAs": [{{ cfg.extra.github | json_encode | safe }}, {{ cfg.extra.linkedin | json_encode | safe }}]
 }
 {%- endcomponent person %}
+
+{% component website(cfg) -%}
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ cfg.title | json_encode | safe }},
+  "alternateName": {{ cfg.extra.author_ascii | json_encode | safe }},
+  "url": {{ (cfg.base_url ~ "/") | json_encode | safe }}
+}
+{%- endcomponent website %}
